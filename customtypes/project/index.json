@@ -34,11 +34,30 @@
           "thumbnails": []
         }
       },
+      "livelink": {
+        "type": "Link",
+        "config": {
+          "label": "LiveLink",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "codelink": {
+        "type": "Link",
+        "config": {
+          "label": "CodeLink",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "image_block": {
+              "type": "SharedSlice"
+            },
             "text_block": {
               "type": "SharedSlice"
             }
