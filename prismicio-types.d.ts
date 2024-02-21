@@ -235,7 +235,10 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ProjectDocumentDataSlicesSlice = ImageBlockSlice | TextBlockSlice;
+type ProjectDocumentDataSlicesSlice =
+  | LinkBlockSlice
+  | ImageBlockSlice
+  | TextBlockSlice;
 
 /**
  * Content for Project documents
@@ -794,6 +797,61 @@ export type ImageBlockSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *LinkBlock → Primary*
+ */
+export interface LinkBlockSliceDefaultPrimary {
+  /**
+   * CodeLink field in *LinkBlock → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: link_block.primary.codelink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  codelink: prismic.LinkField;
+
+  /**
+   * LiveLink field in *LinkBlock → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: link_block.primary.livelink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  livelink: prismic.LinkField;
+}
+
+/**
+ * Default variation for LinkBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LinkBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LinkBlockSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LinkBlock*
+ */
+type LinkBlockSliceVariation = LinkBlockSliceDefault;
+
+/**
+ * LinkBlock Shared Slice
+ *
+ * - **API ID**: `link_block`
+ * - **Description**: LinkBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LinkBlockSlice = prismic.SharedSlice<
+  "link_block",
+  LinkBlockSliceVariation
+>;
+
+/**
  * Primary content in *TechList → Primary*
  */
 export interface TechListSliceDefaultPrimary {
@@ -950,6 +1008,10 @@ declare module "@prismicio/client" {
       ImageBlockSliceDefaultPrimary,
       ImageBlockSliceVariation,
       ImageBlockSliceDefault,
+      LinkBlockSlice,
+      LinkBlockSliceDefaultPrimary,
+      LinkBlockSliceVariation,
+      LinkBlockSliceDefault,
       TechListSlice,
       TechListSliceDefaultPrimary,
       TechListSliceDefaultItem,

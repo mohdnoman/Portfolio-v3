@@ -12,7 +12,7 @@ export type ImageBlockProps = SliceComponentProps<Content.ImageBlockSlice>;
  */
 const ImageBlock = ({ slice }: ImageBlockProps): JSX.Element => {
   return (
-    <PrismicNextImage  field={slice.primary.image} />
+    <PrismicNextImage  field={slice.primary.image} width={600}/>
   );
 };
 

@@ -1,0 +1,35 @@
+{
+  "id": "link_block",
+  "type": "SharedSlice",
+  "name": "LinkBlock",
+  "description": "LinkBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "codelink": {
+          "type": "Link",
+          "config": {
+            "label": "CodeLink",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "livelink": {
+          "type": "Link",
+          "config": {
+            "label": "LiveLink",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
