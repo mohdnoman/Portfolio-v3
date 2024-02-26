@@ -16,7 +16,7 @@ const LinkBlock = ({ slice }: LinkBlockProps): JSX.Element => {
       // data-slice-type={slice.slice_type}
       // data-slice-variation={slice.variation}
     >
-      <div className="flex gap-5 mt-2 w-full">
+      <div className="flex gap-5 mt-2 w-full md:justify-start justify-evenly">
      <Button linkField={slice.primary.livelink} label={"Live"} className="mt-0 px-6"></Button>
      <Button linkField={slice.primary.codelink} label={"Code"} className="mt-0 px-6"></Button>
      </div>
